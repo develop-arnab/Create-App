@@ -1,7 +1,7 @@
 export const getMultipleFiles = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/" + "getMultipleFiles"
+        "https://shell-create.herokuapp.com/api/" + "getMultipleFiles"
       );
 
       return data;
@@ -14,7 +14,7 @@ export const getMultipleFiles = async () => {
 export  const getIconsAnimFiles = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/" + "getMultipleFiles"
+        "https://shell-create.herokuapp.com/api/" + "getMultipleFiles"
       );
     //   iconsArray = data[3].files;
     //   console.log("MUltiple Files Data", iconsArray);
@@ -33,7 +33,7 @@ export  const getIconsAnimFiles = async () => {
   export const getFilesByTitle = async (title) => {
     try {
       const {data} = await axios.get(
-        "http://localhost:8080/api/" + `getSearchedFiles?title=${title}`
+        "https://shell-create.herokuapp.com/api/" + `getSearchedFiles?title=${title}`
       );
       console.log("RETURNED SEARCHED FILES", data)
       return data;
@@ -45,7 +45,7 @@ export  const getIconsAnimFiles = async () => {
   export const retrieveCanvasState = async () => {
     try {
       const {data} = await axios.get(
-        "http://localhost:8080/api/" + `retrieveCanvas`
+        "https://shell-create.herokuapp.com/api/" + `retrieveCanvas`
       );
       console.log("RETURNED SEARCHED FILES", data)
       return data;
@@ -58,7 +58,7 @@ export  const getIconsAnimFiles = async () => {
   export const saveCanvasState = async (canvas) => {
     try {
       const {data} = await axios.post(
-        "http://localhost:8080/api/" + `saveCanvas?canvas=${canvas}`
+        "https://shell-create.herokuapp.com/api/" + `saveCanvas?canvas=${canvas}`
       );
       console.log("Saved Canvas", data)
       return data;
@@ -71,7 +71,7 @@ export  const getIconsAnimFiles = async () => {
   export const saveSelectedAnimation = async (fileName) => {
     try {
       const {data} = await axios.post(
-        "http://localhost:8080/api/" + `saveSelectedAnim?fileName=${fileName}`
+        "https://shell-create.herokuapp.com/api/" + `saveSelectedAnim?fileName=${fileName}`
       );
       console.log("Saved Animation", data)
       return data;
