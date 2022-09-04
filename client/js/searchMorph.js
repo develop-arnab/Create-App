@@ -223,7 +223,7 @@ const createAnimalsDivs = async () => {
       wrapper: animalDiv,
       animType: "svg",
       loop: true,
-      path: `http://localhost:8080/${item}`
+      path: `https://shell-create.herokuapp.com/${item}`
     });
 
     const animalCanvas = document.createElement("canvas");
@@ -235,7 +235,7 @@ const createAnimalsDivs = async () => {
       loop: true,
       autoplay: true,
       // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-      path: `http://localhost:8080/${item}`,
+      path: `https://shell-create.herokuapp.com/${item}`,
       rendererSettings: {
         context: animalCanvas.getContext("2d"), // the canvas context
         preserveAspectRatio: "xMidYMid meet"
@@ -313,7 +313,7 @@ const createIconDivs = async () => {
       wrapper: iconsDiv,
       animType: "svg",
       loop: true,
-      path: `http://localhost:8080/${item}`
+      path: `https://shell-create.herokuapp.com/${item}`
     });
 
     const iconCanvas = document.createElement("canvas");
@@ -325,7 +325,7 @@ const createIconDivs = async () => {
       loop: true,
       autoplay: true,
       // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-      path: `http://localhost:8080/${item}`,
+      path: `https://shell-create.herokuapp.com/${item}`,
       rendererSettings: {
         context: iconCanvas.getContext("2d"), // the canvas context
         preserveAspectRatio: "xMidYMid meet"

@@ -121,7 +121,7 @@ $( document ).ready(function() {
   const retrieveCanvasState = async () => {
     try {
       const {data} = await axios.get(
-        "http://localhost:8080/api/" + `retrieveCanvas`
+        "https://shell-create.herokuapp.com/api/" + `retrieveCanvas`
       );
       console.log("RETURNED SEARCHED FILES", data)
       return data;
@@ -134,7 +134,7 @@ $( document ).ready(function() {
   const retrieveCanvasAndAnim = async () => {
     try {
       const {data} = await axios.get(
-        "http://localhost:8080/api/" + `retrieveCanvasAndAnim`
+        "https://shell-create.herokuapp.com/api/" + `retrieveCanvasAndAnim`
       );
       console.log("Canvas and Anim ", data)
       return data;
@@ -152,7 +152,7 @@ $( document ).ready(function() {
 
       var selectedAnim =  savedCanvasAndAnim.anim[0].fileName
       console.log("SELECTED ANIM", selectedAnim)
-      const fabricImage = new fabric.Lottie(`http://localhost:8080/${selectedAnim}`, {
+      const fabricImage = new fabric.Lottie(`https://shell-create.herokuapp.com/${selectedAnim}`, {
         scaleX: 0.5,
       })
 
@@ -203,7 +203,7 @@ if(restoreSavedCanvas){
 
 var objectArray = new Array();
 
-// fetch('http://localhost:8080/api/getSingleFiles', {
+// fetch('https://shell-create.herokuapp.com/api/getSingleFiles', {
 //   method: 'GET',
 //   // body: JSON.stringify({
 //   //   name : username.value,
@@ -223,7 +223,7 @@ var objectArray = new Array();
 // const getSingleFiles = async () => {
 //   try {
 //     const { data } = await axios.get(
-//       "http://localhost:8080/api/" + "getSingleFiles"
+//       "https://shell-create.herokuapp.com/api/" + "getSingleFiles"
 //     );
 //     console.log("Database Files", data);
 //     return data;
@@ -247,7 +247,7 @@ let officeBoyPathArray = [];
 // const getMultipleFiles = async () => {
 //   try {
 //     const { data } = await axios.get(
-//       "http://localhost:8080/api/" + "getMultipleFiles"
+//       "https://shell-create.herokuapp.com/api/" + "getMultipleFiles"
 //     );
 //     characterSuitsArray = data[2].files;
 //     console.log("MUltiple Files Data", characterSuitsArray);
@@ -268,7 +268,7 @@ let officeBoyPathArray = [];
 // const getIconsAnimFiles = async () => {
 //   try {
 //     const { data } = await axios.get(
-//       "http://localhost:8080/api/" + "getMultipleFiles"
+//       "https://shell-create.herokuapp.com/api/" + "getMultipleFiles"
 //     );
 //     iconsArray = data[3].files;
 //     console.log("MUltiple Files Data", iconsArray);
@@ -287,7 +287,7 @@ let officeBoyPathArray = [];
 // const getOfficeBoyAnimFiles = async () => {
 //   try {
 //     const { data } = await axios.get(
-//       "http://localhost:8080/api/" + "getMultipleFiles"
+//       "https://shell-create.herokuapp.com/api/" + "getMultipleFiles"
 //     );
 //     officeBoyArray = data[4].files;
 //     console.log("MUltiple Files Data", officeBoyArray);
@@ -329,7 +329,7 @@ let officeBoyPathArray = [];
 //         wrapper: animalDiv,
 //         animType: "svg",
 //         loop: true,
-//         path: `http://localhost:8080/${item}`
+//         path: `https://shell-create.herokuapp.com/${item}`
 //       });
 
 //       const animalCanvas = document.createElement("canvas");
@@ -341,7 +341,7 @@ let officeBoyPathArray = [];
 //         loop: true,
 //         autoplay: true,
 //         // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-//         path: `http://localhost:8080/${item}`,
+//         path: `https://shell-create.herokuapp.com/${item}`,
 //         rendererSettings: {
 //           context: animalCanvas.getContext("2d"), // the canvas context
 //           preserveAspectRatio: "xMidYMid meet"
@@ -387,7 +387,7 @@ let officeBoyPathArray = [];
 //         wrapper: iconsDiv,
 //         animType: "svg",
 //         loop: true,
-//         path: `http://localhost:8080/${item}`
+//         path: `https://shell-create.herokuapp.com/${item}`
 //       });
 
 //       const iconCanvas = document.createElement("canvas");
@@ -399,7 +399,7 @@ let officeBoyPathArray = [];
 //         loop: true,
 //         autoplay: true,
 //         // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-//         path: `http://localhost:8080/${item}`,
+//         path: `https://shell-create.herokuapp.com/${item}`,
 //         rendererSettings: {
 //           context: iconCanvas.getContext("2d"), // the canvas context
 //           preserveAspectRatio: "xMidYMid meet"
@@ -439,7 +439,7 @@ let officeBoyPathArray = [];
 //         wrapper: officeBoyDiv,
 //         animType: "svg",
 //         loop: true,
-//         path: `http://localhost:8080/${item}`
+//         path: `https://shell-create.herokuapp.com/${item}`
 //       });
 
 //       const officeBoyCanvas = document.createElement("canvas");
@@ -451,7 +451,7 @@ let officeBoyPathArray = [];
 //         loop: true,
 //         autoplay: true,
 //         // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-//         path: `http://localhost:8080/${item}`,
+//         path: `https://shell-create.herokuapp.com/${item}`,
 //         rendererSettings: {
 //           context: officeBoyCanvas.getContext("2d"), // the canvas context
 //           preserveAspectRatio: "xMidYMid meet"
@@ -1099,9 +1099,9 @@ const animItem = bodymovin.loadAnimation({
   loop: true,
   autoplay: false,
   //   animationData: JSON.parse(JSON.stringify(animationData)),
-  // path: "http://localhost:8080/uploads/2022-01-24T20-01-36.288Z-cow.json",
+  // path: "https://shell-create.herokuapp.com/uploads/2022-01-24T20-01-36.288Z-cow.json",
  // path: "./assets/anim/Animals/cow.json",
- path : 'http://localhost:8080/uploads/2022-01-30T17-59-45.084Z-bat.json',
+ path : 'https://shell-create.herokuapp.com/uploads/2022-01-30T17-59-45.084Z-bat.json',
   rendererSettings: {
     context: lottieCanvas.getContext("2d"), // the canvas context
     preserveAspectRatio: "xMidYMid meet"
