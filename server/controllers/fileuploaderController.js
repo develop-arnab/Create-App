@@ -44,6 +44,12 @@ const serveStyleSheet = async (req,res,next) => {
   res.sendFile(path.join(__dirname, '../../client/assets/css', 'styles.css'));
 }
 
+const serveTextJsonFile = async (req,res,next) => {
+  console.log("REQUESTED", req)
+  // res.send('Hello World');
+  res.sendFile(path.join(__dirname, '../../client/assets/anim/Text', 'TextComp1.json'));
+}
+
 const singleFileUpload = async (req, res, next) => {
   try {
     const file = new SingleFile({
@@ -209,5 +215,6 @@ module.exports = {
   serveFontFaceObserver,
   serveSearchMorph,
   serveAnimationService,
-  serveStyleSheet
+  serveStyleSheet,
+  serveTextJsonFile
 };
