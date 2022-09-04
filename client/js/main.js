@@ -15,7 +15,7 @@ const initCanvas = (id) => {
     // height: 680,
 
     selection: false,
-    backgroundColor: "grey"
+    backgroundColor: "white"
   });
 };
 const canvas = initCanvas("canvas");

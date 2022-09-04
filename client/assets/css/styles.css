@@ -431,6 +431,10 @@ li{
   z-index: -1;
 }
 
+#canvas {
+  
+}
+
 .row .col:last-child {
   margin-left: 1em;
 }
@@ -501,7 +505,8 @@ input:checked ~ .tab-content {
 }
 .mainCanvas {
   align-self: center;
-  flex:4
+  flex:4;
+  background-color:#A5A1AA;
 }
 .inputView {
   width: 100px;
