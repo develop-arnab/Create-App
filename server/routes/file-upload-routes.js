@@ -19,7 +19,8 @@ const {
   serveSearchMorph,
   serveAnimationService,
   serveStyleSheet,
-  serveTextJsonFile
+  serveTextJsonFile,
+  serveTextJsonFile2
 } = require("../controllers/fileuploaderController");
 const router = express.Router();
 
@@ -31,7 +32,8 @@ router.get("/lib/jscolor.js", serveJsColor);
 router.get("/lib/fontfaceobserver.js", serveFontFaceObserver);
 router.get("/js/searchMorph.js", serveSearchMorph);
 router.get("/services/animationsServices.js", serveAnimationService);
-router.get("/api/assets/anim/Text/TextComp2.json", serveTextJsonFile);
+router.get("/assets/anim/Text/TextComp2.json", serveTextJsonFile);
+router.get("/assets/anim/Text/TextComp1.json", serveTextJsonFile2);
 
 router.get("/assets/css/styles.css", serveStyleSheet);
 router.get("/getSingleFiles", getallSingleFiles);

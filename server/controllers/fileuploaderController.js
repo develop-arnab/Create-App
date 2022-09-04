@@ -49,7 +49,11 @@ const serveTextJsonFile = async (req,res,next) => {
   // res.send('Hello World');
   res.sendFile(path.join(__dirname, '../../client/assets/anim/Text', 'TextComp1.json'));
 }
-
+const serveTextJsonFile2 = async (req,res,next) => {
+  console.log("REQUESTED", req)
+  // res.send('Hello World');
+  res.sendFile(path.join(__dirname, '../../client/assets/anim/Text', 'TextComp2.json'));
+}
 const singleFileUpload = async (req, res, next) => {
   try {
     const file = new SingleFile({
@@ -216,5 +220,6 @@ module.exports = {
   serveSearchMorph,
   serveAnimationService,
   serveStyleSheet,
-  serveTextJsonFile
+  serveTextJsonFile,
+  serveTextJsonFile2
 };
