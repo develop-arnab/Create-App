@@ -15,6 +15,7 @@ const {
   serveMainPage,
   serverMainJavascript,
   serveJsColor,
+  serveConstantsFile,
   serveFontFaceObserver,
   serveSearchMorph,
   serveAnimationService,
@@ -31,6 +32,7 @@ router.get("/js/main.js", serverMainJavascript);
 router.get("/lib/jscolor.js", serveJsColor);
 router.get("/lib/fontfaceobserver.js", serveFontFaceObserver);
 router.get("/js/searchMorph.js", serveSearchMorph);
+router.get("/js/constants.js", serveConstantsFile);
 router.get("/services/animationsServices.js", serveAnimationService);
 router.get("/assets/anim/Text/TextComp2.json", serveTextJsonFile);
 router.get("/assets/anim/Text/TextComp1.json", serveTextJsonFile2);
@@ -39,6 +41,8 @@ router.get("/assets/css/styles.css", serveStyleSheet);
 router.get("/getSingleFiles", getallSingleFiles);
 router.get("/getMultipleFiles", getallMultipleFiles);
 router.get("/getSearchedFiles", getSearchedFiles);
+router.get("/getSearchedFiles", getSearchedFiles);
+
 
 router.post("/saveSelectedAnim", saveSelectedAnim);
 

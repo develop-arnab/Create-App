@@ -4,6 +4,11 @@ const MultipleFile = require("../models/multiplefile");
 const CanvasState = require("../models/canvasState");
 const SelectedAnimation = require("../models/selectedAnimation");
 const path = require('path');
+
+const serveConstantsFile = async (req,res,next) => {
+  res.sendFile(path.join(__dirname, '../../client/js', 'constants.js'));
+}
+
 const serveMainPage = async (req,res,next) => {
   res.sendFile(path.join(__dirname, '../../client', 'index.html'));
 }
@@ -49,11 +54,13 @@ const serveTextJsonFile = async (req,res,next) => {
   // res.send('Hello World');
   res.sendFile(path.join(__dirname, '../../client/assets/anim/Text', 'TextComp1.json'));
 }
+
 const serveTextJsonFile2 = async (req,res,next) => {
   console.log("REQUESTED", req)
   // res.send('Hello World');
   res.sendFile(path.join(__dirname, '../../client/assets/anim/Text', 'TextComp2.json'));
 }
+
 const singleFileUpload = async (req, res, next) => {
   try {
     const file = new SingleFile({
@@ -68,6 +75,7 @@ const singleFileUpload = async (req, res, next) => {
     res.status(400).send(error.message);
   }
 };
+
 const multipleFileUpload = async (req, res, next) => {
   try {
     let filesArray = [];
@@ -100,6 +108,7 @@ const getallSingleFiles = async (req, res, next) => {
     res.status(400).send(error.message);
   }
 };
+
 const getallMultipleFiles = async (req, res, next) => {
   try {
     const files = await MultipleFile.find();
@@ -190,7 +199,6 @@ const retrieveCanvasAnim = async (req, res, next) => {
 };
 
 
-
 const fileSizeFormatter = (bytes, decimal) => {
   if (bytes === 0) {
     return "0 Bytes";
@@ -216,6 +224,7 @@ module.exports = {
   serveMainPage,
   serverMainJavascript,
   serveJsColor,
+  serveConstantsFile,
   serveFontFaceObserver,
   serveSearchMorph,
   serveAnimationService,
