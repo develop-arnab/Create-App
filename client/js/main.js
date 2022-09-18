@@ -1178,9 +1178,10 @@ textanimItem2.addEventListener("DOMLoaded", () => {
 
 const addAnimText = () => {
   var inputVal = document.getElementById("animationText").value;
-  console.log("DOMLoaded", textanimItem.renderer.elements[0].elements[2]);
+  // console.log("DOMLoaded", textanimItem.renderer.elements[6].elements[0]);
+  console.log("ANIMATION DATA : ",textanimItem ," TEXT SEARCH :" ,textanimItem.assets[1].layers[0].t.d.k[0].s.t)
   textanimItem.renderer.elements[2].elements[0].updateDocumentData({
-    t: inputVal
+    t: 'JINGLE'
   });
 };
 
