@@ -14,7 +14,7 @@ require("./database")();
 
 app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
+app.use(express.static(path.join(__dirname, "static")));
 app.use("/api", fileRoutes.routes);
 
 app.listen(port, () => {

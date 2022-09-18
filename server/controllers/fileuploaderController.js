@@ -5,48 +5,9 @@ const CanvasState = require("../models/canvasState");
 const SelectedAnimation = require("../models/selectedAnimation");
 const path = require('path');
 
-const serveConstantsFile = async (req,res,next) => {
-  res.sendFile(path.join(__dirname, '../../client/js', 'constants.js'));
-}
 
 const serveMainPage = async (req,res,next) => {
   res.sendFile(path.join(__dirname, '../../client', 'index.html'));
-}
-
-const serverMainJavascript = async (req,res,next) => {
-  console.log("REQUESTED", req)
-  // res.send('Hello World');
-  res.sendFile(path.join(__dirname, '../../client/js', 'main.js'));
-}
-
-const serveJsColor = async (req,res,next) => {
-  console.log("REQUESTED", req)
-  // res.send('Hello World');
-  res.sendFile(path.join(__dirname, '../../client/lib', 'jscolor.js'));
-}
-
-const serveFontFaceObserver = async (req,res,next) => {
-  console.log("REQUESTED", req)
-  // res.send('Hello World');
-  res.sendFile(path.join(__dirname, '../../client/lib', 'fontfaceobserver.js'));
-}
-
-const serveSearchMorph = async (req,res,next) => {
-  console.log("REQUESTED", req)
-  // res.send('Hello World');
-  res.sendFile(path.join(__dirname, '../../client/js', 'searchMorph.js'));
-}
-
-const serveAnimationService = async (req,res,next) => {
-  console.log("REQUESTED", req)
-  // res.send('Hello World');
-  res.sendFile(path.join(__dirname, '../../client/services', 'animationsServices.js'));
-}
-
-const serveStyleSheet = async (req,res,next) => {
-  console.log("REQUESTED", req)
-  // res.send('Hello World');
-  res.sendFile(path.join(__dirname, '../../client/assets/css', 'styles.css'));
 }
 
 const serveTextJsonFile = async (req,res,next) => {
@@ -222,13 +183,6 @@ module.exports = {
   retrieveCanvas,
   retrieveCanvasAnim,
   serveMainPage,
-  serverMainJavascript,
-  serveJsColor,
-  serveConstantsFile,
-  serveFontFaceObserver,
-  serveSearchMorph,
-  serveAnimationService,
-  serveStyleSheet,
   serveTextJsonFile,
   serveTextJsonFile2
 };
