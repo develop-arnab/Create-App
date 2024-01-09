@@ -1,6 +1,8 @@
 "use strict";
 
 const express = require("express");
+const multer = require("multer");
+
 const { upload } = require("../helpers/filehelper");
 const {
   singleFileUpload,
@@ -14,22 +16,36 @@ const {
   retrieveCanvasAnim,
   serveMainPage,
   serveTextJsonFile,
-  serveTextJsonFile2
+  serveTextJsonFile2,
+  serveRegisterPage,
+  registerUser,
+  getAnimations,
+  uploadAnimation,
+  bulkUploadAnimation,
+  searchAnimation
 } = require("../controllers/fileuploaderController");
 const router = express.Router();
 
+const storage = multer.memoryStorage();
+const s3upload = multer({ storage: storage });
+
+router.post("/uploadanim", s3upload.single("image"), uploadAnimation);
+router.post("/bulkuploadanim", s3upload.array("images"), bulkUploadAnimation);
 router.post("/singleFile", upload.single("file"), singleFileUpload);
 router.post("/multipleFiles", upload.array("files"), multipleFileUpload);
-router.get("/main", serveMainPage);
-
+// router.get("/main", serveMainPage);
+// router.get("/register", serveRegisterPage);
+router.post("/register/user", registerUser);
 router.get("/assets/anim/Text/TextComp2.json", serveTextJsonFile);
 router.get("/assets/anim/Text/TextComp1.json", serveTextJsonFile2);
 
 router.get("/getSingleFiles", getallSingleFiles);
 router.get("/getMultipleFiles", getallMultipleFiles);
+router.get("/getAnimations", getAnimations);
 router.get("/getSearchedFiles", getSearchedFiles);
 router.get("/getSearchedFiles", getSearchedFiles);
 
+router.post("/search", searchAnimation);
 
 router.post("/saveSelectedAnim", saveSelectedAnim);
 router.get("/retrieveCanvas", retrieveCanvas);

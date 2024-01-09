@@ -1,3 +1,6 @@
+
+@import url('http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css');
+@import url('http://twitter.github.com/bootstrap/assets/css/bootstrap.css');
 /*========== GOOGLE FONTS ==========*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
@@ -508,7 +511,7 @@ input:checked ~ .tab-content {
   flex:4;
   background-color:#A5A1AA;
 }
-.inputView {
+.input-box {
   width: 100px;
   height: 20px;
   align-self: center;
@@ -872,4 +875,41 @@ input[type="search"] { /* reset normalize */
   width: 10;
   height: 10;
   background-color:#6923D0;
+}
+
+
+
+
+#btnGroup {
+  margin: 5px 5px 10px 3px;
+}
+
+#containerLayers {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#containerLayers li {
+  height: 40px !important;
+  margin: 0 3px 3px 3px;
+  padding: 0.4em;
+  padding-left: 1.5em;
+  height: 15px;
+  cursor: move;
+}
+
+#containerLayers li span {
+  position: absolute;
+  margin-left: -1.3em;
+}
+
+li {
+  height: 40px !important;
+  border: 1px solid black;
+}
+
+.actived {
+  border: 1px solid red;
 }

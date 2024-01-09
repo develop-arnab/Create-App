@@ -1,8 +1,8 @@
-// import { getMultipleFiles, getIconsAnimFiles } from "../services/animationsServices.js";
+// import { getMultipleFiles, getIconsAnimFiles } froBASE_URLm "../services/animationsServices.js";
 
 // const axios = require('axios')
 //import { retrieveCanvasState } from "../services/animationsServices.js";
-
+// import { BASE_URL } from "./constants";
 
 
 
@@ -121,7 +121,7 @@ $( document ).ready(function() {
   const retrieveCanvasState = async () => {
     try {
       const {data} = await axios.get(
-        "https://shell-create.herokuapp.com/api/" + `retrieveCanvas`
+        "http://localhost:8080/api/" + `retrieveCanvas`
       );
       console.log("RETURNED SEARCHED FILES", data)
       return data;
@@ -134,7 +134,7 @@ $( document ).ready(function() {
   const retrieveCanvasAndAnim = async () => {
     try {
       const {data} = await axios.get(
-        "https://shell-create.herokuapp.com/api/" + `retrieveCanvasAndAnim`
+        "http://localhost:8080/api/" + `retrieveCanvasAndAnim`
       );
       console.log("Canvas and Anim ", data)
       return data;
@@ -152,7 +152,7 @@ $( document ).ready(function() {
 
       var selectedAnim =  savedCanvasAndAnim.anim[0].fileName
       console.log("SELECTED ANIM", selectedAnim)
-      const fabricImage = new fabric.Lottie(`https://shell-create.herokuapp.com/${selectedAnim}`, {
+      const fabricImage = new fabric.Lottie(`http://localhost:8080/${selectedAnim}`, {
         scaleX: 0.5,
       })
 
@@ -203,7 +203,7 @@ if(restoreSavedCanvas){
 
 var objectArray = new Array();
 
-// fetch('https://shell-create.herokuapp.com/api/getSingleFiles', {
+// fetch('http://localhost:8080/api/getSingleFiles', {
 //   method: 'GET',
 //   // body: JSON.stringify({
 //   //   name : username.value,
@@ -869,17 +869,23 @@ var doctoranimView = bodymovin.loadAnimation({
 
 const textAnimView = document.getElementById("text-anim");
 var textanimView = bodymovin.loadAnimation({
-  wrapper: textAnimView,
-  animType: "svg",
+  container: textAnimView,
+  renderer: "svg",
   loop: true,
-  path: "./assets/anim/Text/TextComp1.json"
+  rendererSettings: {
+    progressiveLoad: false
+  },
+  path: "./assets/anim/Text/TextComp13.json"
 });
 
 const textAnimView2 = document.getElementById("text-anim2");
 var textanimView = bodymovin.loadAnimation({
-  wrapper: textAnimView2,
-  animType: "svg",
+  container: textAnimView2,
+  renderer: "svg",
   loop: true,
+  rendererSettings: {
+    progressiveLoad: false
+  },
   path: "./assets/anim/Text/TextComp2.json"
 });
 
@@ -1048,8 +1054,8 @@ doctorCanvas.width = 1000;
 doctorCanvas.height = 1000;
 
 const textCanvas = document.createElement("canvas");
-textCanvas.width = 1000;
-textCanvas.height = 1000;
+textCanvas.width = 2000;
+textCanvas.height = 2000;
 
 const textCanvas2 = document.createElement("canvas");
 textCanvas2.width = 1000;
@@ -1060,7 +1066,7 @@ const textanimItem = bodymovin.loadAnimation({
   loop: true,
   autoplay: false,
   // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-  path: "./assets/anim/Text/TextComp1.json",
+  path: "./assets/anim/Text/TextComp13.json",
   rendererSettings: {
     context: textCanvas.getContext("2d"), // the canvas context
     preserveAspectRatio: "xMidYMid meet"
@@ -1101,7 +1107,7 @@ const animItem = bodymovin.loadAnimation({
   //   animationData: JSON.parse(JSON.stringify(animationData)),
   // path: "https://shell-create.herokuapp.com/uploads/2022-01-24T20-01-36.288Z-cow.json",
  // path: "./assets/anim/Animals/cow.json",
- path : 'https://shell-create.herokuapp.com/uploads/2022-01-30T17-59-45.084Z-bat.json',
+ path : 'http://localhost:8080/uploads/2022-01-30T17-59-45.084Z-bat.json',
   rendererSettings: {
     context: lottieCanvas.getContext("2d"), // the canvas context
     preserveAspectRatio: "xMidYMid meet"
@@ -1177,11 +1183,44 @@ textanimItem2.addEventListener("DOMLoaded", () => {
 });
 
 const addAnimText = () => {
-  var inputVal = document.getElementById("animationText").value;
-  // console.log("DOMLoaded", textanimItem.renderer.elements[6].elements[0]);
-  console.log("ANIMATION DATA : ",textanimItem ," TEXT SEARCH :" ,textanimItem.assets[1].layers[0].t.d.k[0].s.t)
-  textanimItem.renderer.elements[2].elements[0].updateDocumentData({
-    t: 'JINGLE'
+  var mainTitle = document.getElementById("animationText").value;
+  var subTitle = document.getElementById("animationText2").value;
+  console.log("DOMLoadedNOW",  (textanimItem.renderer)," TEXT SEARCH :" ,textanimItem.assets[0].layers[0].t.d.k[0].s.t);
+  console.log("DOMLoadedNOW",  (textanimItem.renderer.elements[4]));
+  // console.log("ANIMATION DATA : ",textanimItem ," TEXT SEARCH :" ,textanimItem.assets[0].layers[0].t.d.k[0].s.t)
+  // textanimItem.renderer.elements[0].elements[0].updateDocumentData({
+  //   t: subTitle, fc : "#000000"
+  // });
+  // textanimItem.renderer.elements[2].elements[0].updateDocumentData({
+  //   t: subTitle
+  // },0);
+  // textanimItem.renderer.elements[1].elements[0].updateDocumentData({
+  //   t: mainTitle,s:40, fc : "#000000"
+  // },0);
+  // textanimItem.renderer.elements[3].elements[0].updateDocumentData({
+  //   t: mainTitle,s:40, fc : "#000000"
+  // },0);
+  textanimItem.renderer.elements[4].elements[0].updateDocumentData({
+    t: mainTitle
+  },0);
+  // textanimItem.renderer.elements[5].elements[0].updateDocumentData({
+  //   t: mainTitle, fc : "#000000"
+  // });
+
+  // textanimItem.renderer.elements[4].updateDocumentData({
+  //   t: subTitle
+  // });
+  // textanimItem.renderer.elements[5].updateDocumentData({
+  //   t: subTitle
+  // });
+  textanimItem.renderer.elements[6].elements[0].updateDocumentData({
+    t: subTitle
+  });
+  // textanimItem.renderer.elements[7].updateDocumentData({
+  //   t: mainTitle
+  // });
+    textanimItem.renderer.elements[8].elements[0].updateDocumentData({
+    t: mainTitle
   });
 };
 

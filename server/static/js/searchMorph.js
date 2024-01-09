@@ -11,7 +11,7 @@
 /*jshint browser: true, strict: true, undef: true */
 /*global define: false */
 import { getMultipleFiles, getIconsAnimFiles, getFilesByTitle, saveCanvasState, retrieveCanvasState, saveSelectedAnimation } from "../services/animationsServices.js";
-
+// import { BASE_URL } from "./constants.js";
 ( function( window ) {
 
 'use strict';
@@ -181,9 +181,9 @@ const retrieveSavedCanvas = () => {
 }
 
 const saveCurrentCanvas = (e) => {
-  jsonCanvas = JSON.stringify(canvas);
-  console.log("Search Saved Canvas", jsonCanvas);
-  saveCanvasState(jsonCanvas);
+  // jsonCanvas = JSON.stringify(canvas);
+  // console.log("Search Saved Canvas", jsonCanvas);
+  // saveCanvasState(jsonCanvas);
 }
 
 const getsearchedAnimatons = (e) => {
@@ -202,7 +202,7 @@ const createAnimalsDivs = async () => {
   // let characterSuitsPathArray = [];
   await getMultipleFiles().then((data) => {
     console.log("GOT ANIMATION DATA : ", data);
-    characterSuitsArray = data[0].files;
+    characterSuitsArray = data[3].files;
     console.log("MUltiple Files Data", characterSuitsArray);
     characterSuitsArray.forEach((character) => {
       console.log("CHARACTER", character);
@@ -223,7 +223,7 @@ const createAnimalsDivs = async () => {
       wrapper: animalDiv,
       animType: "svg",
       loop: true,
-      path: `https://shell-create.herokuapp.com/${item}`
+      path: `http://localhost:8080/${item}`
     });
 
     const animalCanvas = document.createElement("canvas");
@@ -235,7 +235,7 @@ const createAnimalsDivs = async () => {
       loop: true,
       autoplay: true,
       // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-      path: `https://shell-create.herokuapp.com/${item}`,
+      path: `http://localhost:8080/${item}`,
       rendererSettings: {
         context: animalCanvas.getContext("2d"), // the canvas context
         preserveAspectRatio: "xMidYMid meet"
@@ -313,7 +313,7 @@ const createIconDivs = async () => {
       wrapper: iconsDiv,
       animType: "svg",
       loop: true,
-      path: `https://shell-create.herokuapp.com/${item}`
+      path: `http://localhost:8080/${item}`
     });
 
     const iconCanvas = document.createElement("canvas");
@@ -325,7 +325,7 @@ const createIconDivs = async () => {
       loop: true,
       autoplay: true,
       // animationData: JSON.parse(JSON.stringify(doctorAnimationData)),
-      path: `https://shell-create.herokuapp.com/${item}`,
+      path: `http://localhost:8080/${item}`,
       rendererSettings: {
         context: iconCanvas.getContext("2d"), // the canvas context
         preserveAspectRatio: "xMidYMid meet"
