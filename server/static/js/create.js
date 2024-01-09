@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // Make API call
-        await fetch("http://server.shelltunes.com/api/search", requestOptions)
+        await fetch("https://server.shelltunes.com/api/search", requestOptions)
           .then((response) => response.json())
           .then((data) => {
             console.log("Returned data ", data);
